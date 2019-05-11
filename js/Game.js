@@ -9,6 +9,8 @@
          this.activePhrase = null;
          this.winSound = new Audio('sound/win.wav');
          this.loseSound = new Audio('sound/lose.mp3');
+         this.correctKeySound = new Audio('sound/correct.wav');
+         this.wrongKeySound = new Audio('sound/wrong.wav');
 
      }
      /**
@@ -113,10 +115,12 @@
             if(keyboard[i].textContent === playerKey){
                 keyboard[i].setAttribute('disabled', true);
                 if(this.activePhrase.checkLetter(playerKey)) {
+                    this.correctKeySound.play();
                     keyboard[i].className = "key chosen"
                     this.activePhrase.showMatchedLetter(playerKey);
                 }
                 else {
+                    this.wrongKeySound.play();
                     keyboard[i].className = "key wrong";
                     this.removeLife();
                 }

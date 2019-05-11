@@ -42,7 +42,7 @@ class Phrase {
             const phraseDivUlItems = document.querySelectorAll('.letter');
             Array.prototype.forEach.call(phraseDivUlItems, function (letterElem) {
                 if(letterElem.textContent === matchedLetter) {
-                    letterElem.className = "show letter";
+                    letterElem.className = "bounceIn show letter";
                 }
             });
     }
